@@ -46,9 +46,15 @@
 	font-weight: 500;
 	margin: 0;
 
-	&.is-active .path,
-	&.is-active a:hover .path {
-		fill: $pri;
+	&.is-active,
+	&.is-active a:hover {
+		.nav__link {
+			color: $text-colour;
+		}
+
+		.path {
+			fill: $pri;
+		}
 	}
 }
 
@@ -62,8 +68,13 @@
 		}
 	}
 
+	.no-touch & {
+		color: rgba( $text-colour, .6 );
+	}
+
 	.icon .path {
-		transition: fill $speed ease;
+		transition: color $speed ease,
+					fill $speed ease;
 	}
 
 	&.button--primary {

@@ -48,6 +48,10 @@ em {
 	font-style: italic;
 }
 
+.highlight-text {
+	color: $pri;
+}
+
 ::selection {
 	background: $highlight-colour;
 }
