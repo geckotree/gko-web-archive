@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+	var blog = CurrentPage.Site().FirstChild("Blog");
+	dynamic allPosts;
+	
+	string docType = CurrentPage.DocumentTypeAlias;
+	
+	switch( docType ) {
+		case "Author":
+			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible && Author.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
+			break;
+		case "Category":
+			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible && Category.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
+			break;
+		default:
+			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible").OrderBy("postDate desc");
+			break;
+	}
+	
+
+	var paging = Paging.GetPages(allPosts.Count(), 5); 
+	var selection = allPosts.Skip(paging.Skip).Take(paging.Take).ToList();
+
+}
+@RenderBody()
+	
+@if( selection.Any() ) {
+	
+	foreach(var item in selection) {
+		<a href="@item.Url" class="listing__link">
+			<article class="listing">
+				<div class="listing__content wrap wrap--medium">
+					<h2 class="listing__title">@item.Name</h2>
+					<div class="listing__copy">
+						@item.intro
+					</div>
+				</div>
+			</article>
+		</a>
+	}
+	
+} else {
+	<article class="listing wrap wrap--medium cleafix">
+		<p class="delta" style="text-align: center;">Oops, we havne't written anything yet</p>
+	</article>
+}
+
+<nav class="pagination wrap wrap--medium clearfix">
+	@PagingTemplate.RenderPaging(paging, CurrentPage.Id)
+</nav>
