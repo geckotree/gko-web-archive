@@ -86,6 +86,16 @@
 	}
 }
 
+.nav__search {
+	.no-mustard & {
+		transform: translateY( -40em ); // move offscreen by default, stops content appearing on page
+	}
+
+	.no-js & {
+		transform: translateY( 0 ); // move back on screen if no-js
+	}
+}
+
 .js.mustard {
 	&.nav-detached .page__header {
 		position: fixed;
@@ -139,6 +149,14 @@
 		padding-top: 2rem;
 		width: 100%;
 		z-index: -1;
+
+		.no-mustard & {
+			transform: translateY( -40em ); // move offscreen by default, stops content appearing on page
+		}
+
+		.no-js & {
+			transform: translateY( 0 ); // move back on screen if no-js
+		}
 	}
 
 	.nav__desktop {
