@@ -1,0 +1,23 @@
+/* ===========================================================
+
+	# INTERFACE
+
+=========================================================== */
+
+.case-study__interface {
+	img {
+		border: $border-width solid $grey-1;
+	}
+}
+
+.case-study__interface--tablet {
+	.case-study__section-content {
+		max-width: 80rem;
+	}
+}
+
+.case-study__interface--mobile {
+	.case-study__section-content {
+		max-width: 40rem;
+	}
+}

@@ -1,0 +1,47 @@
+/* ===========================================================
+
+	# WRAP
+
+=========================================================== */
+
+.wrap {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.wrap--center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrap--medium {
+	max-width: $wrap--medium;
+}
+
+.wrap--large {
+	max-width: $wrap--large;
+}
+
+.wrap--x-large {
+	max-width: $wrap--x-large;
+}
+
+@include respond-min( $mq-small ) {
+
+	.wrap {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+}
+
+@include respond-min( $mq-medium ) {
+
+	.wrap {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+
+}

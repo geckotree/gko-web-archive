@@ -1,0 +1,56 @@
+/* ===========================================================
+
+	# TYPOGRAPHY
+
+=========================================================== */
+
+.case-study__typography__list {
+	list-style: none;
+	margin-top: 0;
+}
+
+.case-study__typography__item {
+	display: inline-block;
+	margin: 0;
+}
+
+.case-study__typography__button {
+	padding: 0 2.5rem;
+}
+
+@include respond-max( $mq-large ) {
+
+	.case-study__typography__list {
+		padding-top: $padding--small;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.case-study__typography__list {
+		padding-top: $padding--large;
+	}
+
+	.flexbox {
+		.case-study__typography {
+			.wrap {
+				align-items: center;
+				display: flex;
+			}
+
+			.case-study__section-header--right {
+				order: 2;
+			}
+		}
+	}
+
+	.no-flexbox {
+		.case-study__typography {
+			.case-study__section-header--right {
+				float: right;
+			}
+		}
+	}
+
+}

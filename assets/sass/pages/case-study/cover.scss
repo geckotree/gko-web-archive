@@ -1,0 +1,82 @@
+/* ===========================================================
+
+	# COVER
+
+=========================================================== */
+
+.case-study__cover {
+	margin-bottom: $padding--small;
+	min-height: 40rem;
+	position: relative;
+	text-align: center;
+}
+
+.case-study__cover__logo {
+	animation: bounceInDown $speed * 3 0 both;
+	height: 0;
+	margin: $padding--small / 2 auto 0;
+	position: relative;
+	width: 100%;
+
+	svg {
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+}
+
+.case-study__cover__button {
+	animation: bounceIn $speed * 2 $speed * 3 both;
+	bottom: $padding--medium;
+	height: 4.8rem;
+	margin-left: -2.4rem;
+	padding: 1.4rem;
+	left: 50%;
+	position: absolute;
+	width: 4.8rem;
+
+	.icon--arrow-down {
+		margin-bottom: -.3rem; // Remove weird svg space
+
+		.path {
+			fill: #fff;
+		}
+	}
+}
+
+@include respond-min( $mq-small ) {
+
+	.case-study__cover {
+		margin-bottom: $padding--large;
+		min-height: calc( 100vh - 7.6rem );
+	}
+
+	.case-study__cover__logo {
+		margin: $padding--small auto 0;
+	}
+
+	.case-study__cover__button {
+		bottom: $padding--medium * 2;
+		height: 6.4rem;
+		margin-left: -3.2rem;
+		padding: 2rem 2.2rem;
+		width: 6.4rem;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.case-study__cover__button {
+		bottom: $padding--medium * 3;
+	}
+
+}
+
+@include respond-min( $mq-x-large ) {
+
+	.case-study__cover {
+		min-height: calc( 100vh - 10.8rem );
+	}
+
+}

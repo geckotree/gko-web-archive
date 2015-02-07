@@ -1,0 +1,48 @@
+/* ===========================================================
+
+	# STYLE TILE
+
+=========================================================== */
+
+.case-study__style-tiles {
+	overflow: hidden;
+
+	.case-study__section-content {
+		@include clearfix;
+	}
+
+	.carousel__item {
+		border-radius: $border-radius;
+	}
+
+	.carousel__navigation {
+		margin: 0 auto;
+		max-width: $wrap--medium;
+	}
+}
+
+@include respond-max( $mq-medium ) {
+
+	.case-study__style-tiles {
+		.carousel__label {
+			@include hide-text;
+		}
+	}
+
+}
+
+@include respond-min( $mq-medium ) {
+
+	.case-study__style-tiles {
+		.carousel {
+			@include column( 10/12, 1/12 );
+			overflow: visible;
+		}
+
+		.carousel__item {
+			border-radius: $border-radius;
+			padding: 0 1rem;
+		}
+	}
+
+}

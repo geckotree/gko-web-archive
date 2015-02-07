@@ -1,0 +1,117 @@
+/* ===========================================================
+
+	# ADSPY
+
+=========================================================== */
+
+.case-study--adspy {
+	.case-study__cover {
+		background: url( '../../img/background/city-background.svg' ) center bottom repeat-x;
+	}
+
+	.case-study__cover__logo {
+		padding-top: 18.518518518%; // ( svg height / svg width ) * width
+		max-width: 90%;
+	}
+
+	.button--primary,
+	.carousel__slider {
+		background: $adspy-pri;
+		border-color: $adspy-pri;
+
+		&:hover,
+		&:focus {
+			background: $adspy-sec;
+			border-color: $adspy-sec;
+		}
+	}
+
+	.carousel__button {
+		&:focus {
+			color: $adspy-sec;
+		}
+
+		&.is-active {
+			color: #fff;
+		}
+	}
+
+	.case-study__logo__mark {
+		&.is-active-colour-pri {
+			.path {
+				fill: $adspy-pri;
+			}
+		}
+
+		&.is-active-colour-sec {
+			.path {
+				fill: $adspy-sec;
+			}
+		}
+
+		&.is-active-colour-ter {
+			.path {
+				fill: $adspy-ter;
+			}
+		}
+	}
+
+	.highlight-text {
+		color: $adspy-pri;
+	}
+
+	.case-study__logo__button--pri {
+		background: $adspy-pri;
+	}
+
+	.case-study__logo__button--sec {
+		background: $adspy-sec;
+	}
+
+	.case-study__logo__button--ter {
+		background: $adspy-ter;
+	}
+
+	.case-study__colours__item--pri {
+		background: linear-gradient( to right, $adspy-pri 50%, $adspy-pri-alt 50% );
+	}
+
+	.case-study__colours__item--sec {
+		background: linear-gradient( to right, $adspy-sec 50%, $adspy-sec-alt 50% );
+	}
+
+	.case-study__colours__item--ter {
+		background: linear-gradient( to right, $adspy-ter 50%, $adspy-ter-alt 50% );
+	}
+
+	.case-study__illustrations-extras__number--pri {
+		border-color: rgba( $adspy-pri, .5 );
+		color: $adspy-pri;
+	}
+
+	.case-study__illustrations-extras__number--sec {
+		border-color: rgba( $adspy-sec, .5 );
+		color: $adspy-sec;
+	}
+
+	.case-study__illustrations-extras__number--ter {
+		border-color: rgba( $adspy-ter, .5 );
+		color: $adspy-ter;
+	}
+}
+
+@include respond-max( $mq-medium ) {
+	.case-study--adspy {
+		.case-study__cover {
+			background-size: 75%;
+		}
+	}
+}
+
+@include respond-min( $mq-large ) {
+	.case-study--adspy {
+		.case-study__cover__logo {
+			max-width: 80rem;
+		}
+	}
+}

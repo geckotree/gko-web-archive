@@ -1,0 +1,55 @@
+/* ===========================================================
+
+  # TABLES
+
+=========================================================== */
+
+.table {
+	width: 100%;
+
+	table {
+		width: 100%;
+		text-align: left;
+	}
+
+	th {
+		border-top: $border-width solid $border-colour;
+		font-weight: 600;
+	}
+
+	th,
+	td {
+		border-bottom: $border-width solid $border-colour;
+		padding: 1rem 2rem;
+		text-align: left;
+	}
+}
+
+.table--scroll {
+	overflow-y: hidden;
+	overflow-x: auto;
+	position: relative;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	-webkit-overflow-scrolling: touch;
+}
+
+@include respond-max( $mq-medium ) {
+
+	.table--stacked {
+		thead {
+			display: none;
+		}
+
+		td {
+			display: block;
+
+			&:before {
+				content: attr( data-label ) ': ';
+				display: inline-block;
+				font-weight: 600;
+				width: 50%;
+			}
+		}
+	}
+
+}

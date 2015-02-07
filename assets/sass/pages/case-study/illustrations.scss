@@ -1,0 +1,112 @@
+/* ===========================================================
+
+	# ILLUSTRATIONS
+
+=========================================================== */
+
+.case-study__illustrations-sketches {
+	@include clearfix;
+}
+
+.case-study__illustrations-sketches__image {
+	border-radius: $border-radius * 3;
+	overflow: hidden;
+
+	img {
+		height: 60rem;
+		object-fit: cover;
+	}
+}
+
+.case-study__illustrations-sketches__image--large {
+	float: left;
+	width: 75%;
+	width: calc( 75% - 2rem );
+}
+
+.case-study__illustrations-sketches__image--small {
+	float: right;
+	width: 25%;
+	width: calc( 25% - 2rem );
+}
+
+
+
+.case-study__illustrations-extras__list {
+	@include clearfix;
+	list-style: none;
+	text-align: center;
+}
+
+.case-study__illustrations-extras__item {
+	margin: 0;
+}
+
+.case-study__illustrations-extras__number-wrap {
+	margin-bottom: $padding--medium;
+	position: relative;
+
+	&:before {
+		background: $grey-1;
+		content: '';
+		height: $border-width * 2;
+		left: 0;
+		margin-top: -$border-width;
+		position: absolute;
+		top: 50%;
+		width: 100%;
+	}
+}
+
+.case-study__illustrations-extras__number {
+	background: $background-colour;
+	border: $border-width * 2 solid transparent;
+	border-radius: 50%;
+	box-shadow: 0 0 0 $border-width * 6 $background-colour;
+	display: inline-block;
+	font-size: 2.4rem;
+	font-weight: bold;
+	padding: 1.8rem 1rem;
+	position: relative;
+	height: 6.4rem;
+	width: 6.4rem;
+}
+
+@include respond-max( $mq-large ) {
+
+	.case-study__illustrations-extras__item {
+		padding-bottom: $padding--medium;
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.case-study__illustrations-extras__item--left {
+		.case-study__illustrations-extras__number-wrap {
+			&:before {
+				left: 50%;
+				width: 60%;
+			}
+		}
+	}
+
+	.case-study__illustrations-extras__item--right {
+		.case-study__illustrations-extras__number-wrap {
+			&:before {
+				left: auto;
+				right: 50%;
+				width: 60%;
+			}
+		}
+	}
+
+	.case-study__illustrations-extras__number {
+		font-size: 3.2rem;
+		padding: 2.4rem;
+		height: 8rem;
+		width: 8rem;
+	}
+
+}
+

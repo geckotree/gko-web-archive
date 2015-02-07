@@ -1,0 +1,436 @@
+/* ===========================================================
+
+	# NAV
+
+=========================================================== */
+
+.page__header {
+	background: $background-colour;
+	transition: transform $speed ease;
+	z-index: 10;
+}
+
+.nav {
+	@include clearfix;
+	padding: 1.5rem;
+}
+
+.nav__logo {
+	padding: 0;
+	transition: transform $speed ease;
+
+	.logo {
+		margin-bottom: -.8rem; // Remove weird svg space
+	}
+
+	.logo__path {
+		fill: $pri;
+		transition: fill $speed ease;
+	}
+
+	&:hover,
+	&:focus {
+		background: transparent;
+
+		.logo__path {
+			fill: $green-2;
+		}
+	}
+}
+
+.nav__list {
+	list-style: none;
+}
+
+.nav__item {
+	font-weight: 500;
+	margin: 0;
+
+	&.is-active .path,
+	&.is-active a:hover .path {
+		fill: $pri;
+	}
+}
+
+.nav__link {
+	color: $text-colour;
+
+	&:hover,
+	&:focus {
+		.icon .path {
+			fill: $sec;
+		}
+	}
+
+	.icon .path {
+		transition: fill $speed ease;
+	}
+
+	&.button--primary {
+		border-radius: 0;
+		color: #fff;
+
+		&:hover,
+		&:focus {
+			background: $sec;
+			color: #fff;
+		}
+
+		&:focus {
+			box-shadow: 0 .3rem 0 0 rgba( 0, 0, 0, .1 );
+		}
+
+		.icon .path {
+			fill: #fff;
+		}
+	}
+}
+
+.js.mustard {
+	&.nav-detached .page__header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+
+	&.nav-hidden .page__header {
+		transform: translateY( -10.8rem );
+	}
+}
+
+@include respond-max( $mq-medium ) {
+	.nav__item {
+		.icon {
+			margin: .3rem 0;
+		}
+	}
+
+	.nav__search {
+		.input {
+			padding: 1.2rem 2.4rem 1.2rem 0;
+		}
+	}
+}
+
+@include respond-min-max( $mq-medium, $mq-large ) {
+	.nav__item {
+		.icon {
+			margin: .6rem 0;
+		}
+	}
+
+	.nav__search {
+		.input {
+			padding: 1rem 2.4rem 1rem 0;
+		}
+	}
+}
+
+@include respond-max( $mq-large ) {
+	.nav {
+		background: $background-colour;
+		position: relative;
+		text-align: center;
+		transition: background $speed ease;
+	}
+
+	.nav__mobile {
+		background: $background-colour;
+		padding-top: 2rem;
+		width: 100%;
+		z-index: -1;
+	}
+
+	.nav__desktop {
+		display: none;
+	}
+
+	.nav__logo {
+		display: inline-block;
+		width: 60%;
+	}
+
+	.nav__item {
+		.icon {
+			float: right;
+		}
+	}
+
+	.nav__link {
+		display: block;
+		padding: 1rem 2rem;
+		text-align: left;
+	}
+
+	.nav__button {
+		height: 100%;
+		padding: 1.5rem 2rem;
+		position: absolute;
+		top: 0;
+		width: 20%;
+		z-index: 10;
+	}
+
+	.nav__nav-toggle {
+		left: 0;
+		text-align: left;
+	}
+
+	.nav__search-toggle {
+		right: 0;
+		text-align: right;
+	}
+
+	.no-js,
+	.js.no-mustard {
+		.nav__link.button--primary {
+			border-radius: 10rem;
+		}
+
+		.nav__button {
+			display: none;
+		}
+
+		.nav__search {
+			margin-top: $line-height / 2;
+		}
+	}
+
+	.js.mustard {
+		&.nav__mobile--open {
+			.nav__mobile {
+				animation-name: navBounceInDown;
+			}
+		}
+
+		&.nav__mobile--closed {
+			.nav__mobile {
+				animation-name: navBounceOutUp;
+			}
+		}
+
+		&.nav__search--open {
+			.nav {
+				background: #fff;
+			}
+
+			.nav__logo,
+			.nav__nav-toggle {
+				transform: translateY( 7.8rem );
+			}
+
+			.nav__search {
+				transform: translateY( 0 );
+			}
+		}
+
+		.nav__mobile {
+			animation-duration: $speed * 1.5;
+			animation-fill-mode: both;
+			left: 0;
+			position: absolute;
+			top: 0;
+			transform: translateY( -100% );
+			transition: transform $speed ease;
+		}
+
+		.nav__nav-toggle {
+			transition: transform $speed ease;
+
+			&.is-active {
+				.menu-path--1 {
+					animation-name: menuPathIn1;
+				}
+
+				.menu-path--2 {
+					animation-name: menuPathIn2;
+				}
+
+				.menu-path--3 {
+					animation-name: menuPathIn3;
+				}
+			}
+
+			&.is-inactive {
+				.menu-path--1 {
+					animation-name: menuPathOut1;
+				}
+
+				.menu-path--2 {
+					animation-name: menuPathOut2;
+				}
+
+				.menu-path--3 {
+					animation-name: menuPathOut3;
+				}
+			}
+
+			.menu-path--1,
+			.menu-path--2,
+			.menu-path--3 {
+				animation-duration: $speed;
+				animation-fill-mode: both;
+			}
+		}
+
+		.nav__search {
+			left: 0;
+			padding: 1.5rem 2rem;
+			position: absolute;
+			top: 0;
+			transform: translateY( -100% );
+			transition: transform $speed ease;
+			width: 100%;
+
+			.input {
+				border: none;
+			}
+		}
+	}
+}
+
+@include respond-min( $mq-large ) {
+	.nav {
+		padding: 2rem;
+	}
+
+	.nav__logo,
+	.nav__mobile,
+	.nav__item {
+		float: left;
+	}
+
+	.nav__desktop,
+	.nav__search-toggle,
+	.nav__search {
+		float: right;
+	}
+
+	.nav__item--mobile,
+	.nav__nav-toggle {
+		display: none;
+	}
+
+	.nav__list {
+		@include clearfix;
+	}
+
+	.nav__link {
+		display: block;
+		padding: 1rem 2rem;
+
+		&:hover,
+		&:focus {
+			background: transparent;
+			color: $text-colour;
+		}
+
+		&.button--primary {
+			border-radius: 10rem;
+		}
+	}
+
+	.nav__search-toggle {
+		padding: 1rem 1.6rem;
+
+		&:hover {
+			.icon .path {
+				fill: $sec;
+			}
+		}
+
+		.icon .path {
+			transition: fill $speed ease;
+		}
+	}
+
+	.nav__search {
+		.input {
+			border-color: transparent;
+			padding: .8rem 2rem;
+		}
+	}
+
+	.js.mustard {
+		&.nav__search--open .nav__search {
+			.input {
+				border-color: $border-colour;
+			}
+		}
+
+		&.nav__search--closed .nav__search {
+			.input {
+				transition: border-color $speed ease;
+			}
+		}
+
+		.nav__search {
+			.input {
+				transition: border-color $speed ease $speed / 2;
+			}
+		}
+	}
+}
+
+@include respond-min-max( $mq-large, $mq-x-large ) {
+	.nav {
+		background: $background-colour;
+	}
+
+	.nav__search {
+		padding-top: 2rem;
+		width: 100%;
+	}
+
+	.no-js,
+	.js.no-mustard {
+		.nav__search-toggle {
+			display: none;
+		}
+	}
+
+	.js.mustard {
+		&.nav-detached .nav__search {
+			transition: transform $speed ease;
+		}
+
+		&.nav__search--open .nav__search {
+			transform: translateY( 6.8rem );
+		}
+
+		.nav__search {
+			background: $background-colour;
+			left: 2rem;
+			position: absolute;
+			top: 0;
+			transition: transform $speed ease;
+			width: 100%;
+			width: calc( 100% - 4rem );
+			z-index: -1;
+		}
+	}
+}
+
+@include respond-min( $mq-x-large ) {
+	.nav {
+		padding: 3rem;
+	}
+
+	.nav__search {
+		.input {
+			max-width: 28rem;
+		}
+	}
+
+	.js.mustard {
+		&.nav__search--open .nav__search {
+			width: 28rem;
+		}
+
+		.nav__search {
+			overflow: hidden;
+			transition: width $speed ease;
+			width: 0;
+		}
+	}
+}

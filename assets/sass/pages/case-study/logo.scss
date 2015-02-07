@@ -1,0 +1,57 @@
+/* ===========================================================
+
+	# LOGO
+
+=========================================================== */
+
+.case-study__logo {
+	.case-study__section-content {
+		text-align: center;
+	}
+}
+
+.case-study__logo__mark {
+	.path {
+		transition: fill $speed ease;
+	}
+}
+
+.case-study__logo__list {
+	list-style: none;
+	margin-top: $padding--small;
+}
+
+.case-study__logo__item {
+	display: inline-block;
+	margin: 0 .5rem;
+}
+
+.case-study__logo__button {
+	border: $border-width * 1.5 solid $background-colour;
+	border-radius: 50%;
+	height: 3.2rem;
+	transition: box-shadow $speed / 2 ease;
+	width: 3.2rem;
+
+	&:focus {
+		box-shadow: 0 0 0 $border-width $grey-1;
+	}
+
+	&.is-active {
+		box-shadow: 0 0 0 $border-width * 1.5 $grey-1;
+		transition: box-shadow $speed / 2 ease;
+	}
+}
+
+@include respond-min( $mq-large ) {
+
+	.flexbox {
+		.case-study__logo {
+			.wrap {
+				align-items: center;
+				display: flex;
+			}
+		}
+	}
+
+}
