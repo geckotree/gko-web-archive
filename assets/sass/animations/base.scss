@@ -85,3 +85,7 @@
     	transform: scale3d( 1, 1, 1 );
   	}
 }
+
+.bounce-in {
+	animation: bounceIn $speed * 2 $speed * 2 both;
+}
