@@ -1,0 +1,66 @@
+/* ===========================================================
+
+	# LISTING - IMAGE
+
+=========================================================== */
+
+.listing--image {
+
+	.listing__image {
+		width: 100%;
+	}
+
+	.listing__title {
+		color: $pri;
+		margin-right: 1.5rem;
+	}
+
+	.listing__content {
+		color: $text-colour;
+	}
+
+	.listing__content {
+		background-color: $background-colour;
+		padding: 3rem 0 0 1.5rem;
+		margin: -6rem 1.5rem auto auto;
+		position: relative;
+		border-radius: 0 3rem 0 0;
+	}
+
+	.listing__link + .listing__link {
+		margin-top: 4rem;
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.listing--image {
+
+		.listing__item {
+			position: relative;
+		}
+
+		.listing__image-wrap {
+			@include column( 8/12, $offset: 4/12 );
+			position: absolute;
+		}
+
+		.listing__img-wrap,
+		.listing__image {
+			border-radius: 3rem;
+		}
+
+		.listing__content {
+			@include column( 8/12 );
+			margin-top: 6rem;
+			min-height: 50rem;
+		}
+
+		.listing__link + .listing__link {
+			margin-top: 8rem;
+		}
+
+	}
+
+}

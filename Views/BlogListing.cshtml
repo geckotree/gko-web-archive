@@ -26,20 +26,25 @@
 @RenderBody()
 	
 @if( selection.Any() ) {
-	
-	foreach(var item in selection) {
-		<a href="@item.Url" class="listing__link">
-			<article class="listing">
-				<div class="listing__content wrap wrap--medium">
-					<h2 class="listing__title">@item.Name</h2>
-					<div class="listing__copy">
-						@item.intro
+	<section class="listing listing--image wrap--center wrap--large">
+		@foreach(var item in selection) {
+			<a href="@item.Url" class="listing__link">
+				<article class="listing__item clearfix">
+					@if( item.HasValue("CoverImage") ) {
+						<div class="listing__image-wrap">
+							<img src="@Umbraco.Media( item.CoverImage ).Url?width=750&height=500&mode=crop" alt="@item.Name" class="listing__image" />
+						</div>
+					}
+					<div class="listing__content">
+						<h2 class="listing__title">@item.Name</h2>
+						<div class="listing__copy">
+							@item.intro
+						</div>
 					</div>
-				</div>
-			</article>
-		</a>
-	}
-	
+				</article>
+			</a>
+		}
+	</section>	
 } else {
 	<article class="listing wrap wrap--medium cleafix">
 		<p class="delta" style="text-align: center;">Oops, we havne't written anything yet</p>
