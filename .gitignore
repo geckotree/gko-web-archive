@@ -10,6 +10,7 @@ sitespeed-result
 /web.config
 **/App_Data/ClientDependency/
 **/App_Data/ExamineIndexes/
+**/App_Data/Cache/
 **/App_Data/Logs/
 **/App_Data/[Pp]review/
 **/App_Data/TEMP/
