@@ -1,0 +1,22 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	var site = CurrentPage.Site();
+    var settings = site.FirstChild("Settings");
+    var selection = settings.SecondaryNav;
+
+}
+@if( selection != "" ) {
+	<nav class="nav__desktop" role="navigation">
+		<ul class="nav__list">
+			@foreach( var id in selection.Split(',') ) {
+				var item = Umbraco.Content(id);
+
+				<li class="nav__item">
+					<a href="@item.Url" class="nav__link @( item.Name == "Planner" ? "button--primary" : "" )">@item.Name
+						@Html.Raw(item.NavIcon)
+					</a>
+				</li>
+			}
+		</ul>
+	</nav>
+}
