@@ -8,13 +8,13 @@
 	
 	switch( docType ) {
 		case "Author":
-			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible && Author.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
+			allPosts = blog.FirstChild("Posts").Children("PostBlog").Where("Visible && Author.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
 			break;
 		case "Category":
-			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible && Category.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
+			allPosts = blog.FirstChild("Posts").Children("PostBlog").Where("Visible && Category.Contains(@0)", CurrentPage.Id.ToString() ).OrderBy("postDate desc");
 			break;
 		default:
-			allPosts = blog.FirstChild("Posts").Children("Post").Where("Visible").OrderBy("postDate desc");
+			allPosts = blog.FirstChild("Posts").Children("PostBlog").Where("Visible").OrderBy("postDate desc");
 			break;
 	}
 	
