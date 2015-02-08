@@ -54,7 +54,7 @@
 		.listing__content {
 			@include column( 8/12 );
 			margin-top: 6rem;
-			min-height: 50rem;
+			min-height: 35rem;
 		}
 
 		.listing__link + .listing__link {
