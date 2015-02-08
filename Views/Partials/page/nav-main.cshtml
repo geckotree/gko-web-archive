@@ -12,7 +12,7 @@
 				var item = Umbraco.Content(id);
 
 				<li class="nav__item">
-					<a href="@item.Url" class="nav__link @( item.Name == "Planner" ? "button--primary" : "" )">@item.Name
+					<a href="@item.Url" class="nav__link @(item.Name == "Planner" ? "button--primary" : "") @(item.IsAncestorOrSelf(CurrentPage) ? "active" : null)">@item.Name
 						@Html.Raw(item.NavIcon)
 					</a>
 				</li>
