@@ -5,15 +5,22 @@
 =========================================================== */
 
 a {
-	border-radius: $border-radius;
 	color: $pri;
-	padding: .5rem;
 	transition: background $speed ease,
 				color $speed ease;
+				
+	&:hover,
+	&:focus {
+		color: $sec;
+	}
+}
+
+p > a {
+	border-radius: $border-radius;
+	padding: .5rem;
 
 	&:hover,
 	&:focus {
-		background: rgba( 0, 0, 0, .03 );
 		color: $sec;
 	}
 }
