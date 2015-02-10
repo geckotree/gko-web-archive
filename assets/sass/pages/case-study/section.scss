@@ -4,6 +4,18 @@
 
 =========================================================== */
 
+.cssanimations .planner-section {
+	.button {
+		opacity: 0;
+	}
+}
+
+.planner-section.is-inview {
+	.button {
+		animation: bounceIn $speed * 2 $speed both;
+	}
+}
+
 .case-study__section-content {
 	padding-top: $padding--medium;
 }

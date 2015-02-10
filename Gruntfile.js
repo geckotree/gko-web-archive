@@ -116,7 +116,9 @@ module.exports = function ( grunt ) {
 		requirejs: {
 			compile: {
 				options: {
-					mainConfigFile: '<%= pkg.assetsFolder %>/js/config.js',
+					mainConfigFile: '<%= pkg.assetsFolder %>/js/main.js',
+					baseUrl: '<%= pkg.assetsFolder %>/js',
+					dir: '<%= pkg.assetsFolder %>/_build/js',
 					preserveLicenseComments: false,
 					removeCombined: true,
 					optimize: 'uglify2'

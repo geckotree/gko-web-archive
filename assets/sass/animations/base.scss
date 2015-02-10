@@ -20,7 +20,7 @@
 		transform: scale3d( .3, .3, .3 );
 	}
 
-	50% {
+	50%, 100% {
 		opacity: 1;
 	}
 }
@@ -84,8 +84,4 @@
     	opacity: 1;
     	transform: scale3d( 1, 1, 1 );
   	}
-}
-
-.bounce-in {
-	animation: bounceIn $speed * 2 $speed * 2 both;
 }

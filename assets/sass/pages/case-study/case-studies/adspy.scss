@@ -62,33 +62,62 @@
 	}
 
 	.case-study__logo__button--pri {
-		animation: scaleIn $speed $speed * 2 both;
 		background: $adspy-pri;
 	}
 
 	.case-study__logo__button--sec {
-		animation: scaleIn $speed $speed * 1.5 both;
 		background: $adspy-sec;
 	}
 
 	.case-study__logo__button--ter {
-		animation: scaleIn $speed $speed both;
 		background: $adspy-ter;
 	}
 
+	.cssanimations & {
+		.case-study__logo__button,
+		.case-study__colours__item {
+			opacity: 0;
+		}
+	}
+
+	.case-study__logo.is-inview {
+		.case-study__logo__button--pri {
+			animation: scaleIn $speed $speed * 2 both;
+		}
+
+		.case-study__logo__button--sec {
+			animation: scaleIn $speed $speed * 1.5 both;
+		}
+
+		.case-study__logo__button--ter {
+			animation: scaleIn $speed $speed both;
+		}
+	}
+
 	.case-study__colours__item--pri {
-		animation: scaleIn $speed $speed both;
 		background: linear-gradient( to right, $adspy-pri 50%, $adspy-pri-alt 50% );
 	}
 
 	.case-study__colours__item--sec {
-		animation: scaleIn $speed $speed * 1.5 both;
 		background: linear-gradient( to right, $adspy-sec 50%, $adspy-sec-alt 50% );
 	}
 
 	.case-study__colours__item--ter {
-		animation: scaleIn $speed $speed * 2 both;
 		background: linear-gradient( to right, $adspy-ter 50%, $adspy-ter-alt 50% );
+	}
+
+	.case-study__colours.is-inview {
+		.case-study__colours__item--pri {
+			animation: scaleIn $speed $speed both;
+		}
+
+		.case-study__colours__item--sec {
+			animation: scaleIn $speed $speed * 1.5 both;
+		}
+
+		.case-study__colours__item--ter {
+			animation: scaleIn $speed $speed * 2 both;
+		}
 	}
 
 	.case-study__illustrations-extras__number--pri {
@@ -121,4 +150,52 @@
 			max-width: 80rem;
 		}
 	}
+}
+
+
+
+@keyframes pageFadeRight {
+	0% {
+		opacity: 0;
+		transform: translate( 17.143px, 10px );
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate( 27.143px, 10px );
+	}
+}
+
+@keyframes pageFadeLeft {
+	0% {
+		opacity: 0;
+		transform: translateX( 1rem );
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX( 0 );
+	}
+}
+
+@keyframes fingerSlideLeft {
+	0% {
+		transform: translateX( 0 );
+	}
+
+	100% {
+		transform: translateX( -4rem );
+	}
+}
+
+.page-fade-right {
+	animation: pageFadeRight $speed * 3 0 both;
+}
+
+.page-fade-left {
+	animation: pageFadeLeft $speed * 3 0 both;
+}
+
+.finger-slide-left {
+	animation: fingerSlideLeft $speed * 3 $speed * 2 both;
 }
