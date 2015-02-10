@@ -21,6 +21,14 @@
 	
 	<script src="assets/_build/js/head.js"></script>
 
+	<script>
+		grunticon([
+			'assets/_build/img/icons/icons-svg.css', 
+			'assets/_build/img/icons/icons-png.css', 
+			'assets/_build/img/icons/icons-fallback.css'
+		], grunticon.svgLoadedCallback);
+	</script>
+
 	<!-- FAVICONS -->
 	<link rel="icon" type="image/png" sizes="196x196" href="/assets/img/icons/favicon-196.png">
 	<link rel="icon" type="image/png" sizes="160x160" href="/assets/img/icons/favicon-160.png">
@@ -59,6 +67,8 @@
 	<meta name="twitter:creator" content="@geckotree" />
 </head>
 <body class="page">
+
+	<i class="icon--feather" data-grunticon-embed></i>
 
 	<header class="page__header js-page-header" role="banner">
 		<div class="nav nav--main">

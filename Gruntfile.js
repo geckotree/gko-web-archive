@@ -30,6 +30,15 @@ module.exports = function ( grunt ) {
 					'concat',
 					'uglify'
 				]
+			},
+			icons: {
+				files: [
+					'<%= pkg.assetsFolder %>/img/icons/*.svg'
+				],
+				tasks: [
+					'svgmin:icons',
+					'grunticon'
+				]
 			}
 		},
 
@@ -142,7 +151,8 @@ module.exports = function ( grunt ) {
 			head: {
 				src: [
 					'<%= pkg.assetsFolder %>/_components/lazysizes/lazysizes.js',
-					'<%= pkg.assetsFolder %>/_components/modernizr/modernizr.js'
+					'<%= pkg.assetsFolder %>/_components/modernizr/modernizr.js',
+					'<%= pkg.assetsFolder %>/_build/img/icons/grunticon.js'
 				],
 				dest: '<%= pkg.assetsFolder %>/_build/js/head.js'
 			}
@@ -160,30 +170,39 @@ module.exports = function ( grunt ) {
 		/*
 		 * IMAGES
 		 */
-		svg2png: {
-			all: {
-				files: [{
-					cwd: '<%= pkg.assetsFolder %>/img/svg',
-					src: [ '*.svg' ],
-					dest: '<%= pkg.assetsFolder %>/_build/img/svg'
-				}]
-			}
-		},
 		svgmin: {
 			options: {
 				plugins: [
-					{ removeViewBox: true },
-					{ removeUselessStrokeAndFill: false },
-					{ removeEmptyAttrs: false }
+					{ removeViewBox: false },
+					{ removeUselessStrokeAndFill: true },
+					{ removeEmptyAttrs: true }
 				]
 			},
-			all: {
+			svg: {
 				files: [{
 					expand: true,
 					cwd: '<%= pkg.assetsFolder %>/img/svg',
 					src: '*.svg',
 					dest: '<%= pkg.assetsFolder %>/_build/img/svg',
 					ext: '.svg'
+				}]
+			},
+			icons: {
+				files: [{
+					expand: true,
+					cwd: '<%= pkg.assetsFolder %>/img/icons',
+					src: '*.svg',
+					dest: '<%= pkg.assetsFolder %>/_build/img/icons/svg',
+					ext: '.svg'
+				}]
+			}
+		},
+		svg2png: {
+			all: {
+				files: [{
+					cwd: '<%= pkg.assetsFolder %>/_build/img/svg',
+					src: [ '*.svg' ],
+					dest: '<%= pkg.assetsFolder %>/_build/img/png'
 				}]
 			}
 		},
@@ -195,16 +214,47 @@ module.exports = function ( grunt ) {
 					quitAfter: false
 				},
 				src: [
-					//TODO move images to _build
-					'<%= pkg.assetsFolder %>/_build/img/content/*/*.{png,gif,jpg}',
-					'<%= pkg.assetsFolder %>/_build/img/svg/*.png'
+					'<%= pkg.assetsFolder %>/_build/img/bitmap/*.{png,gif,jpg}',
+					'<%= pkg.assetsFolder %>/_build/img/svg/*.png',
+					'<%= pkg.assetsFolder %>/_build/img/icons/png/*.png'
 				]
+			}
+		},
+		grunticon: {
+			icons: {
+				files: [{
+					expand: true,
+					cwd: '<%= pkg.assetsFolder %>/_build/img/icons/svg',
+					src: [ '*.svg' ],
+					dest: '<%= pkg.assetsFolder %>/_build/img/icons'
+				}],
+				options: {
+					cssprefix: '.icon--',
+					datasvgcss: 'icons-svg.css',
+					datapngcss: 'icons-png.css',
+					urlpngcss: 'icons-fallback.css',
+					loadersnippet: 'grunticon.js',
+					enhanceSVG: true,
+					compressPNG: true
+				}
 			}
 		},
 
 		/*
 		 * MISC
 		 */
+		copy: {
+			bitmap: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= pkg.assetsFolder %>/img/bitmap/',
+						src: [ '*' ],
+						dest: '<%= pkg.assetsFolder %>/_build/img/bitmap'
+					}
+				]
+			}
+		},
 		browserSync: {
 			dev: {
 				bsFiles: {
@@ -217,17 +267,6 @@ module.exports = function ( grunt ) {
 				options: {
 					watchTask: true
 				}
-			}
-		},
-		'ftp-deploy': {
-			build: {
-				auth: {
-					host: '',
-					port: 21,
-					authKey: 'key1'
-				},
-				src: '<%= pkg.assetsFolder %>/_build',
-				dest: '/public_html/_build'
 			}
 		}
 	});
@@ -245,17 +284,19 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 
-	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-svgmin' );
+	grunt.loadNpmTasks( 'grunt-svg2png' );
 	grunt.loadNpmTasks( 'grunt-imageoptim' );
+	grunt.loadNpmTasks( 'grunt-grunticon' );
 
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-browser-sync' );
-	grunt.loadNpmTasks( 'ftp-deploy' );
 
 
 	grunt.registerTask( 'dev', [
 		'css:dev',
+		'icons',
 		'js:dev',
 		'browserSync',
 		'watch'
@@ -263,6 +304,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'build', [
 		'css:build',
+		'icons',
 		'js:build',
 		'images'
 	]);
@@ -292,13 +334,15 @@ module.exports = function ( grunt ) {
 		'uglify'
 	]);
 
-	grunt.registerTask( 'images', [
-		'svg2png',
-		'svgmin',
-		'imageoptim'
+	grunt.registerTask( 'icons', [
+		'svgmin:icons',
+		'grunticon'
 	]);
 
-	grunt.registerTask( 'deploy', [
-		'ftp-deploy:build'
+	grunt.registerTask( 'images', [
+		'svgmin:svg',
+		'svg2png',
+		'copy:bitmap',
+		'imageoptim'
 	]);
 };
