@@ -1,1 +1,7 @@
-<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>Artboard 1</title><desc>Created with Sketch.</desc><g sketch:type="MSArtboardGroup" fill="#D8D8D8"><rect sketch:type="MSShapeGroup" y="1" width="16" height="2"/><rect sketch:type="MSShapeGroup" y="13" width="16" height="2"/><rect sketch:type="MSShapeGroup" y="7" width="16" height="2"/></g></svg>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+	<g>
+		<rect class="menu-path--1" y="1" width="16" height="2"/>
+		<rect class="menu-path--3" y="13" width="16" height="2"/>
+		<rect class="menu-path--2" y="7" width="16" height="2"/>
+	</g>
+</svg>

@@ -23,7 +23,7 @@
 		margin-bottom: -.8rem; // Remove weird svg space
 	}
 
-	.logo__path {
+	.icon path {
 		fill: $pri;
 		transition: fill $speed ease;
 	}
@@ -32,7 +32,7 @@
 	&:focus {
 		background: transparent;
 
-		.logo__path {
+		.icon path {
 			fill: $green-2;
 		}
 	}
@@ -46,13 +46,17 @@
 	font-weight: 500;
 	margin: 0;
 
+	.icon path {
+		fill: $grey-2;
+	}
+
 	&.is-active,
 	&.is-active a:hover {
 		.nav__link {
 			color: $text-colour;
 		}
 
-		.path {
+		.icon path {
 			fill: $pri;
 		}
 	}
@@ -63,7 +67,7 @@
 
 	&:hover,
 	&:focus {
-		.icon .path {
+		.icon path {
 			fill: $sec;
 		}
 	}
@@ -72,7 +76,7 @@
 		color: rgba( $text-colour, .6 );
 	}
 
-	.icon .path {
+	.icon path {
 		transition: color $speed ease,
 					fill $speed ease;
 	}
@@ -91,9 +95,21 @@
 			box-shadow: 0 .3rem 0 0 rgba( 0, 0, 0, .1 );
 		}
 
-		.icon .path {
+		.icon path {
 			fill: #fff;
 		}
+	}
+}
+
+.nav__nav-toggle {
+	.icon path {
+		fill: $grey-2;
+	}
+}
+
+.nav__search-toggle {
+	.icon path {
+		fill: $grey-2;
 	}
 }
 
@@ -363,13 +379,9 @@
 		padding: 1rem 1.6rem;
 
 		&:hover {
-			.icon .path {
+			.icon path {
 				fill: $sec;
 			}
-		}
-
-		.icon .path {
-			transition: fill $speed ease;
 		}
 	}
 

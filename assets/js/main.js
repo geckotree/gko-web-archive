@@ -21,7 +21,7 @@ define( function( require ) {
 		'localStorage' in window &&
 		'addEventListener' in window ) {
 
-		//var Header = require( 'components/header' );
+		var Header = require( 'components/header' );
 		var Toggle = require( 'lib/toggle' );
 		var Carousel = require( 'components/carousel' );
 		var CaseStudy = require( 'components/case-study' );
@@ -34,7 +34,7 @@ define( function( require ) {
 		$html.classList.remove( 'no-mustard' );
 		$html.classList.add( 'mustard' );
 
-		//new Header( '.js-page-header' );
+		new Header( '.js-page-header' );
 
 		if( $toggle.length ) {
 			for( var i in $toggle ) {
