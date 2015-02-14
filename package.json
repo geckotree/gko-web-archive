@@ -1,15 +1,24 @@
 {
   	"name": "gko-website",
   	"version": "1.0.0",
-  	"authors": [
-    	"Rob Simpson <rob@geckotree.co.uk>",
-    	"Kev Simpson <kev@geckotree.co.uk>"
+  	"homepage": "http://geckotree.co.uk",
+  	"contributors": [
+  		{
+  			"name": "Rob Simpson",
+  			"url": "http://geckotree.co.uk",
+  			"email": "<rob@geckotree.co.uk>"
+  		},
+  		{
+  			"name": "Kev Simpson",
+  			"url": "http://geckotree.co.uk",
+  			"email": "<kev@geckotree.co.uk>"
+  		}
   	],
   	"assetsFolder": "assets",
   	"devDependencies": {
 	    "grunt": "~0.4.2",
 	    "grunt-autoprefixer": "~0.7.3",
-	    "grunt-browser-sync": "~1.3.0",
+	    "grunt-browser-sync": "~2.0.0",
 	    "grunt-contrib-concat": "~0.3.0",
 	    "grunt-contrib-copy": "~0.7.0",
 	    "grunt-contrib-cssmin": "~0.7.0",
@@ -20,7 +29,9 @@
 	    "grunt-contrib-watch": "~0.5.3",
 	    "grunt-css-mqpacker": "~0.1.3",
 	    "grunt-grunticon": "~2.1.2",
+	    "grunt-humans-txt": "~0.2.1",
 	    "grunt-imageoptim": "~1.4.1",
+	    "grunt-modernizr": "~0.6.0",
 	    "grunt-pixrem": "~0.1.2",
 	    "grunt-remfallback": "0.0.5",
 	    "grunt-stripmq": "0.0.5",

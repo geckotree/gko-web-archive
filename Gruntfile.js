@@ -147,6 +147,19 @@ module.exports = function ( grunt ) {
 				}
 			}
 		},
+		modernizr: {
+			dist: {
+				'devFile': '<%= pkg.assetsFolder %>/_components/modernizr/modernizr.js',
+				'outputFile': '<%= pkg.assetsFolder %>/_build/js/lib/modernizr.js',
+				'extra': {
+					'shiv': true,
+					'printshiv': false,
+					'load': true,
+					'mq': false,
+					'cssclasses': true
+				}
+			}
+		},
 		concat: {
 			head: {
 				src: [
@@ -243,6 +256,36 @@ module.exports = function ( grunt ) {
 		/*
 		 * MISC
 		 */
+		humans_txt: {
+			options: {
+				commentStyle: 'u',
+				content: {
+					'team': [{
+						'Web designer & developer': '<%= pkg.contributors[ 0 ].name %>',
+						'Site': '<%= pkg.contributors[ 1 ].url %>',
+						'Twitter': '@robcsimps',
+						'Dribbble': 'https://dribbble.com/robsimpson',
+						'Location': 'Oxfordshire, UK'
+					},
+					{
+						'Web designer & developer': '<%= pkg.contributors[ 1 ].name %>',
+						'Site': '<%= pkg.contributors[ 1 ].url %>',
+						'Twitter': '@kevsimps',
+						'Dribbble': 'https://dribbble.com/kevsimpson',
+						'Location': 'Portsmouth, UK'
+					}],
+					'site': [{
+						'Version': '<%= pkg.version %>',
+						'Site Url': '<%= pkg.homepage %>',
+						'Language': 'English',
+						'Technology': 'Bower, Grunt, JavaScript, SASS'
+					}]
+				}
+			},
+			site: {
+				dest: 'humans.txt'
+			}
+		},
 		copy: {
 			bitmap: {
 				files: [
@@ -281,6 +324,7 @@ module.exports = function ( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-modernizr' );
 	grunt.loadNpmTasks( 'grunt-contrib-concat' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 
@@ -290,6 +334,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-grunticon' );
 
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-humans-txt' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-browser-sync' );
 
@@ -306,7 +351,8 @@ module.exports = function ( grunt ) {
 		'css:build',
 		'icons',
 		'js:build',
-		'images'
+		'images',
+		'humans_txt'
 	]);
 
 
@@ -321,6 +367,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'js:dev', [
 		'requirejs',
 		'jshint',
+		'modernizr',
 		'concat'
 	]);
 
@@ -341,7 +388,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'images', [
 		'svgmin:svg',
-		'svg2png',
+		//'svg2png',
 		'copy:bitmap',
 		'imageoptim'
 	]);
