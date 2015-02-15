@@ -1,4 +1,4 @@
-define( [ 'ScrollMonitor' ], function( ScrollMonitor ) {
+define( [ 'Zepto', 'ScrollMonitor' ], function( $, ScrollMonitor ) {
 	'use strict';
 
 	function CaseStudy( el ) {

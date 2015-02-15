@@ -13,15 +13,7 @@
 		<link rel="stylesheet" href="../assets/_build/css/style.css">
 	<!--<![endif]-->
 	
-	<script src="../assets/_build/js/head.js"></script>
-
-	<script>
-		grunticon([
-			'../assets/_build/img/icons/icons-svg.css', 
-			'../assets/_build/img/icons/icons-png.css', 
-			'../assets/_build/img/icons/icons-fallback.css'
-		], grunticon.svgLoadedCallback);
-	</script>
+	<script src="../assets/_build/js/head.js" async></script>
 </head>
 <body class="page">
 	
@@ -81,6 +73,7 @@
 
 	<main class="page__content" role="main">
 		<div class="case-study case-study--adspy js-case-study">
+			<!-- COVER -->
 			<section class="section case-study__cover">
 				<div class="wrap wrap--x-large">
 					<div class="case-study__cover__logo">
@@ -92,14 +85,16 @@
 					</a>
 				</div>
 			</section>
-
+			
+			<!-- INTRO -->
 			<section class="section" id="intro">
 				<div class="wrap wrap--x-large">
 					<h1>Establishing a <span class="highlight-text">brand</span></h1>
 					<p class="intro">Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.</p>
 				</div>
 			</section>
-
+			
+			<!-- STYLE TILES -->
 			<section class="section case-study__style-tiles">
 				<div class="wrap wrap--x-large case-study__section-header--center">
 					<h1><span class="case-study__section-header__prefix">01.</span> <span class="highlight-text">Style Tiles</span></h1>
@@ -124,7 +119,8 @@
 					</div>
 				</div>
 			</section>
-
+			
+			<!-- LOGO -->
 			<section class="section case-study__logo js-case-study-logo">
 				<div class="wrap wrap--x-large">
 					<div class="grid--5 case-study__section-header">
@@ -169,7 +165,8 @@
 					</div>
 				</div>
 			</section>
-
+			
+			<!-- COLOURS -->
 			<section class="section case-study__colours js-case-study-colours">
 				<div class="wrap wrap--x-large case-study__section-header--center">
 					<h1><span class="case-study__section-header__prefix">03.</span> <span class="highlight-text">Colours</span></h1>
@@ -190,7 +187,8 @@
 					</ul>
 				</div>
 			</section>
-
+			
+			<!-- TYPOGRAPHY -->
 			<section class="section case-study__typography">
 				<div class="wrap wrap--x-large">
 					<div class="grid--5 case-study__section-header--right">
@@ -230,7 +228,8 @@
 					</div>
 				</div>
 			</section>
-
+			
+			<!-- ILLUSTRATION SKETCHES -->
 			<section class="section wrap case-study__illustrations-sketches">
 				<article class="case-study__illustrations-sketches__image case-study__illustrations-sketches__image--large">
 					<img data-srcset="../assets/_build/img/bitmap/robot-machine-sketchx2.jpg 2440w,
@@ -250,15 +249,17 @@
 				        class="lazyload">
 				</article>
 			</section>
-
+			
+			<!-- ILLUSTRATION INTRO -->
 			<section class="section">
 				<div class="wrap wrap--x-large">
 					<h1>The importance of <span class="highlight-text">illustrations</span></h1>
 					<p class="intro">Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.</p>
 				</div>
 			</section>
-
-			<section class="section case-study__logo">
+			
+			<!-- ILLUSTRATION ADMACHINE -->
+			<section class="section">
 				<div class="wrap wrap--x-large">
 					<div class="grid--5 case-study__section-header">
 						<h1><span class="case-study__section-header__prefix">05.</span> <span class="highlight-text">Ad Machine</span></h1>
@@ -270,7 +271,8 @@
 					</div>
 				</div>
 			</section>
-
+			
+			<!-- ILLUSTRATION EXTRAS -->
 			<section class="section case-study__illustrations-extras">
 				<div class="wrap wrap--x-large case-study__section-header--center">
 					<h1><span class="case-study__section-header__prefix">06.</span> <span class="highlight-text">Extras</span></h1>
@@ -462,7 +464,8 @@
 					</ol>
 				</div>
 			</section>
-
+			
+			<!-- WEB SKETCHES -->
 			<section class="section wrap case-study__illustrations-sketches">
 				<article class="case-study__illustrations-sketches__image">
 					<img data-srcset="../assets/_build/img/bitmap/robot-machine-sketchx2.jpg 2440w,
@@ -473,7 +476,8 @@
 					    class="lazyload">
 				</article>
 			</section>
-
+			
+			<!-- WEB INTRO -->
 			<section class="section">
 				<div class="wrap wrap--x-large">
 					<h1>The <span class="highlight-text">web</span> &amp; <span class="highlight-text">interface</span></h1>
@@ -620,6 +624,6 @@
 		</span>
 	</footer>
 
-	<script data-main="../assets/js/main" src="../assets/_components/requirejs/require.js"></script>
+	<script data-main="../assets/_build/js/main" src="../assets/_components/requirejs/require.js"></script>
 </body>
 </html>

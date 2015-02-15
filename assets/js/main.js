@@ -1,14 +1,16 @@
 require.config({
 	paths: {
 		FastClick: '../_components/fastclick/lib/fastclick',
-		ScrollMonitor: '../_components/scrollMonitor/scrollMonitor'
+		ScrollMonitor: '../_components/scrollMonitor/scrollMonitor',
+		Zepto: 'lib/zepto'
 	},
 	modules: [
 		{
 			name: 'main',
 			include: [
 				'FastClick',
-				'ScrollMonitor'
+				'ScrollMonitor',
+				'Zepto'
 			]
 		}
 	]
@@ -22,7 +24,7 @@ define( function( require ) {
 		'addEventListener' in window ) {
 
 		var Header = require( 'components/header' );
-		var Toggle = require( 'lib/toggle' );
+		var Toggle = require( 'components/toggle' );
 		var Carousel = require( 'components/carousel' );
 		var CaseStudy = require( 'components/case-study' );
 

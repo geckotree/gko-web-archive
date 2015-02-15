@@ -136,7 +136,10 @@ module.exports = function ( grunt ) {
 		},
 		jshint: {
 			options: {
-				jshintrc: '.jshintrc'
+				jshintrc: '.jshintrc',
+				ignores: [
+					'<%= pkg.assetsFolder %>/js/lib/*.js'
+				]
 			},
 			all: {
 				files: {
@@ -164,8 +167,9 @@ module.exports = function ( grunt ) {
 			head: {
 				src: [
 					'<%= pkg.assetsFolder %>/_components/lazysizes/lazysizes.js',
-					'<%= pkg.assetsFolder %>/_components/modernizr/modernizr.js',
-					'<%= pkg.assetsFolder %>/_build/img/icons/grunticon.js'
+					'<%= pkg.assetsFolder %>/js/lib/modernizr.js',
+					'<%= pkg.assetsFolder %>/_build/img/icons/grunticon.js',
+					'<%= pkg.assetsFolder %>/js/lib/grunticon.js'
 				],
 				dest: '<%= pkg.assetsFolder %>/_build/js/head.js'
 			}
@@ -378,8 +382,6 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'js:dev', [
 		'requirejs',
 		'jshint',
-		//'modernizr',
-		'concat'
 	]);
 
 	grunt.registerTask( 'css:build', [
@@ -389,7 +391,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'js:build', [
 		'js:dev',
-		'uglify'
+		'js:init'
 	]);
 
 	grunt.registerTask( 'icons', [
@@ -403,5 +405,10 @@ module.exports = function ( grunt ) {
 		'copy:brand',
 		'copy:bitmap',
 		'imageoptim'
+	]);
+
+	grunt.registerTask( 'js:init', [
+		'concat',
+		'uglify'
 	]);
 };
