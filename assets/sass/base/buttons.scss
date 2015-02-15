@@ -24,6 +24,10 @@
 	&:focus {
 		box-shadow: 0 .3rem 0 0 rgba( 0, 0, 0, .1 );
 	}
+
+	.icon path {
+		transition: fill $speed ease;
+	}
 }
 
 .button--primary {
@@ -35,6 +39,10 @@
 		background: $sec;
 		border-color: $sec;
 	}
+
+	.icon path {
+		fill: $background-colour;
+	}
 }
 
 .button--secondary {
@@ -44,6 +52,14 @@
 	&:focus {
 		background: $sec;
 		border-color: $sec;
+
+		.icon path {
+			fill: $background-colour;
+		}
+	}
+
+	.icon path {
+		fill: $pri;
 	}
 }
 

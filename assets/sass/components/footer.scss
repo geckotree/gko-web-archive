@@ -35,10 +35,11 @@
 	}
 
 	.icon {
+		display: block;
 		margin-bottom: -.8rem; // Remove weird svg space
 	}
 
-	.path {
+	.icon path {
 		fill: $grey-2;
 		transition: fill $speed ease;
 	}
@@ -47,7 +48,7 @@
 .page__footer__link--twitter {
 	&:hover,
 	&:focus {
-		.path {
+		.icon path {
 			fill: $twitter;
 		}
 	}
@@ -56,7 +57,7 @@
 .page__footer__link--dribbble {
 	&:hover,
 	&:focus {
-		.path {
+		.icon path {
 			fill: $dribbble;
 		}
 	}
@@ -65,7 +66,7 @@
 .page__footer__link--instagram {
 	&:hover,
 	&:focus {
-		.path {
+		.icon path {
 			fill: $instagram;
 		}
 	}
@@ -76,7 +77,7 @@
 	font-weight: 500;
 	padding-right: 1rem;
 
-	.icon--heart .path {
+	.icon--heart path {
 		fill: $red-1;
 	}
 }

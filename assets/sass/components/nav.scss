@@ -19,7 +19,8 @@
 	padding: 0;
 	transition: transform $speed ease;
 
-	.logo {
+	.icon {
+		display: block;
 		margin-bottom: -.8rem; // Remove weird svg space
 	}
 
@@ -96,7 +97,7 @@
 		}
 
 		.icon path {
-			fill: #fff;
+			fill: $background-colour;
 		}
 	}
 }
