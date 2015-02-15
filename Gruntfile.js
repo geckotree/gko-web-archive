@@ -227,6 +227,7 @@ module.exports = function ( grunt ) {
 					quitAfter: false
 				},
 				src: [
+					'<%= pkg.assetsFolder %>/_build/img/brand-icons/*.{png,gif,jpg}',
 					'<%= pkg.assetsFolder %>/_build/img/bitmap/*.{png,gif,jpg}',
 					'<%= pkg.assetsFolder %>/_build/img/svg/*.png',
 					'<%= pkg.assetsFolder %>/_build/img/icons/png/*.png'
@@ -287,6 +288,16 @@ module.exports = function ( grunt ) {
 			}
 		},
 		copy: {
+			brand: {
+				files: [
+					{
+						expand: true,
+						cwd: '<%= pkg.assetsFolder %>/img/brand-icons/',
+						src: [ '*' ],
+						dest: '<%= pkg.assetsFolder %>/_build/img/brand-icons'
+					}
+				]
+			},
 			bitmap: {
 				files: [
 					{
@@ -389,6 +400,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'images', [
 		'svgmin:svg',
 		//'svg2png',
+		'copy:brand',
 		'copy:bitmap',
 		'imageoptim'
 	]);
