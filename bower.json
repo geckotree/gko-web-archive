@@ -3,22 +3,23 @@
   	"version": "1.0.0",
   	"homepage": "http://geckotree.co.uk",
   	"authors": [
-  		{
-  			"name": "Rob Simpson",
-  			"homepage": "http://geckotree.co.uk",
-  			"email": "<rob@geckotree.co.uk>"
-  		},
-  		{
-  			"name": "Kev Simpson",
-  			"homepage": "http://geckotree.co.uk",
-  			"email": "<kev@geckotree.co.uk>"
-  		}
+    	{
+      		"name": "Rob Simpson",
+      		"homepage": "http://geckotree.co.uk",
+      		"email": "<rob@geckotree.co.uk>"
+    	},
+    	{
+      		"name": "Kev Simpson",
+      		"homepage": "http://geckotree.co.uk",
+      		"email": "<kev@geckotree.co.uk>"
+    	}
   	],
   	"devDependencies": {
-	    "fastclick": "~1.0.3",
-	    "html5shiv": "~3.7.2",
-	    "lazysizes": "aFarkas/lazysizes#~0.7.1",
-	    "requirejs": "~2.1.15",
-	    "scrollMonitor": "https://github.com/sakabako/scrollMonitor.git#~1.0.12"
+    	"fastclick": "~1.0.3",
+    	"html5shiv": "~3.7.2",
+    	"lazysizes": "aFarkas/lazysizes#~0.7.1",
+    	"owl.carousel": "https://github.com/smashingboxes/OwlCarousel2.git",
+    	"requirejs": "~2.1.15",
+    	"scrollMonitor": "https://github.com/sakabako/scrollMonitor.git#~1.0.12"
   	}
 }
