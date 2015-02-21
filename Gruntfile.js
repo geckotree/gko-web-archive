@@ -382,6 +382,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'js:dev', [
 		'requirejs',
 		'jshint',
+		'concat'
 	]);
 
 	grunt.registerTask( 'css:build', [
@@ -391,7 +392,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'js:build', [
 		'js:dev',
-		'js:init'
+		'uglify'
 	]);
 
 	grunt.registerTask( 'icons', [
@@ -405,10 +406,5 @@ module.exports = function ( grunt ) {
 		'copy:brand',
 		'copy:bitmap',
 		'imageoptim'
-	]);
-
-	grunt.registerTask( 'js:init', [
-		'concat',
-		'uglify'
 	]);
 };

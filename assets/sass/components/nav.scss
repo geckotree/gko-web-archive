@@ -379,6 +379,10 @@
 	.nav__search-toggle {
 		padding: 1rem 1.6rem;
 
+		.icon path {
+			transition: fill $speed ease;
+		}
+
 		&:hover {
 			.icon path {
 				fill: $sec;
