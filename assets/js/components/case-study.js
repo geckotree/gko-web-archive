@@ -1,4 +1,4 @@
-define( function() {
+define( [ 'Zepto', 'ScrollMonitor' ], function( $, ScrollMonitor ) {
 	'use strict';
 
 	function CaseStudy( el ) {
@@ -8,11 +8,39 @@ define( function() {
 			activeColour: 'ter'
 		};
 
+		this._classes = {
+			inview: 'is-inview'
+		};
+
 		this._$el = el;
 		this._$logoButton = el.querySelectorAll( '.js-logo-button' );
 		this._$logoMark = el.querySelector( '.js-logo-mark' );
 		this._$activeButton = el.querySelector( '.js-logo-button' + '.' + this._defaults.active );
 		this._$clickedButton = null;
+		this._$logoSection = el.querySelector( '.js-case-study-logo' );
+		this._$colourSection = el.querySelector( '.js-case-study-colours' );
+		this._$plannerSection = document.querySelector( '.js-planner-section' );
+
+		this._logoSection = ScrollMonitor.create( this._$logoSection );
+		this._colourSection = ScrollMonitor.create( this._$colourSection );
+		this._plannerSection = ScrollMonitor.create( this._$plannerSection );
+
+		var _this = this;
+
+		this._logoSection.fullyEnterViewport( function() {
+			_this._$logoSection.classList.add( _this._classes.inview );
+		});
+
+		this._colourSection.fullyEnterViewport( function() {
+			_this._$colourSection.classList.add( _this._classes.inview );
+		});
+
+		this._plannerSection.fullyEnterViewport( function() {
+			_this._$plannerSection.classList.add( _this._classes.inview );
+		});
+
+
+
 
 		this._logoColourSwitcher();
 	}

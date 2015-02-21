@@ -14,12 +14,12 @@
 	display: inline-block;
 	height: 10rem;
 	margin: 0 2.5rem;
-	transition: transform $speed ease;
+	// transition: transform $speed ease;
 	width: 10rem;
 
-	&:hover {
-		transform: scale( 1.25 );
-	}
+	// &:hover {
+	// 	transform: scale( 1.25 );
+	// }
 }
 
 @include respond-min( $mq-medium ) {

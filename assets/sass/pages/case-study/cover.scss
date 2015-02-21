@@ -13,16 +13,8 @@
 
 .case-study__cover__logo {
 	animation: bounceInDown $speed * 3 0 both;
-	height: 0;
 	margin: $padding--small / 2 auto 0;
-	position: relative;
 	width: 100%;
-
-	svg {
-		left: 0;
-		position: absolute;
-		top: 0;
-	}
 }
 
 .case-study__cover__button {
@@ -35,10 +27,11 @@
 	position: absolute;
 	width: 4.8rem;
 
-	.icon--arrow-down {
-		margin-bottom: -.3rem; // Remove weird svg space
+	.icon--arrow-down-small {
+		display: block;
+		margin-top: .3rem;
 
-		.path {
+		path {
 			fill: #fff;
 		}
 	}

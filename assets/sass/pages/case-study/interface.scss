@@ -6,7 +6,10 @@
 
 .case-study__interface {
 	img {
-		border: $border-width solid $grey-1;
+		border: .5rem solid $grey-1;
+		border-top-width: 3rem;
+		border-radius: $border-radius;
+		width: 100%;
 	}
 }
 

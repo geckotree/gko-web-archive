@@ -6,11 +6,11 @@
 
 .case-study--adspy {
 	.case-study__cover {
-		background: url( '../../img/background/city-background.svg' ) center bottom repeat-x;
+		background: url( '../../_build/img/svg/city-background.svg' ) center bottom repeat-x;
+		background-size: 72rem 32rem;
 	}
 
 	.case-study__cover__logo {
-		padding-top: 18.518518518%; // ( svg height / svg width ) * width
 		max-width: 90%;
 	}
 
@@ -72,6 +72,27 @@
 		background: $adspy-ter;
 	}
 
+	.cssanimations & {
+		.case-study__logo__button,
+		.case-study__colours__item {
+			opacity: 0;
+		}
+	}
+
+	.case-study__logo.is-inview {
+		.case-study__logo__button--pri {
+			animation: scaleIn $speed $speed * 2 both;
+		}
+
+		.case-study__logo__button--sec {
+			animation: scaleIn $speed $speed * 1.5 both;
+		}
+
+		.case-study__logo__button--ter {
+			animation: scaleIn $speed $speed both;
+		}
+	}
+
 	.case-study__colours__item--pri {
 		background: linear-gradient( to right, $adspy-pri 50%, $adspy-pri-alt 50% );
 	}
@@ -82,6 +103,20 @@
 
 	.case-study__colours__item--ter {
 		background: linear-gradient( to right, $adspy-ter 50%, $adspy-ter-alt 50% );
+	}
+
+	.case-study__colours.is-inview {
+		.case-study__colours__item--pri {
+			animation: scaleIn $speed $speed both;
+		}
+
+		.case-study__colours__item--sec {
+			animation: scaleIn $speed $speed * 1.5 both;
+		}
+
+		.case-study__colours__item--ter {
+			animation: scaleIn $speed $speed * 2 both;
+		}
 	}
 
 	.case-study__illustrations-extras__number--pri {
@@ -103,7 +138,7 @@
 @include respond-max( $mq-medium ) {
 	.case-study--adspy {
 		.case-study__cover {
-			background-size: 75%;
+			background-size: 54rem 24rem;
 		}
 	}
 }
@@ -114,4 +149,52 @@
 			max-width: 80rem;
 		}
 	}
+}
+
+
+
+@keyframes pageFadeRight {
+	0% {
+		opacity: 0;
+		transform: translate( 17.143px, 10px );
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate( 27.143px, 10px );
+	}
+}
+
+@keyframes pageFadeLeft {
+	0% {
+		opacity: 0;
+		transform: translateX( 1rem );
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX( 0 );
+	}
+}
+
+@keyframes fingerSlideLeft {
+	0% {
+		transform: translateX( 0 );
+	}
+
+	100% {
+		transform: translateX( -4rem );
+	}
+}
+
+.page-fade-right {
+	animation: pageFadeRight $speed * 3 0 both;
+}
+
+.page-fade-left {
+	animation: pageFadeLeft $speed * 3 0 both;
+}
+
+.finger-slide-left {
+	animation: fingerSlideLeft $speed * 3 $speed * 2 both;
 }
